@@ -2,9 +2,9 @@ FROM ubuntu:14.04
 
 # MAINTAINER CeShine Lee ceshine@ceshine.net
 
-RUN apt-get update
-RUN apt-get upgrade -y
-RUN locale-gen en_US en_US.UTF-8
+RUN DEBIAN_FRONTEND=noninteractive apt-get update
+RUN DEBIAN_FRONTEND=noninteractive apt-get upgrade -y
+RUN DEBIAN_FRONTEND=noninteractive locale-gen en_US en_US.UTF-8
 
 # Install python packages
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y python python-pip ipython \ 
@@ -12,6 +12,9 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y python python-pip ipython 
 
 # Install git
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y git-core
+
+# Need to update ipython or ipython notebook will crash
+RUN DEBIAN_FRONTEND=noninteractive pip install ipython --upgrade
 
 #Setting up working directory
 RUN mkdir /lab 
