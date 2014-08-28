@@ -23,4 +23,4 @@ RUN (apt-get autoremove -y; \
 
 #Setting up ipython notebook server
 EXPOSE 8888
-CMD ipython notebook –no-browser –ip=0.0.0.0 –port 8888 –notebook-dir=notebooks
+CMD ipython notebook --no-browser --ip=0.0.0.0 --port 8888
