@@ -14,7 +14,8 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y python python-pip ipython 
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y git-core
 
 #Setting up working directory
-RUN mkdir /lab WORKDIR /lab
+RUN mkdir /lab 
+WORKDIR /lab
 
 #Minimize image size
 RUN (apt-get autoremove -y; \
