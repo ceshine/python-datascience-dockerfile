@@ -7,14 +7,15 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get upgrade -y
 RUN DEBIAN_FRONTEND=noninteractive locale-gen en_US en_US.UTF-8
 
 # Install python packages
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y python python-pip ipython \ 
-    ipython-notebook python-numpy python-scipy python-matplotlib python-pandas python-sklearn
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y python3 python3-pip ipython3 \ 
+    ipython3-notebook python3-numpy python3-scipy python3-matplotlib python3-pandas
+RUN DEBIAN_FRONTEND=noninteractive pip3 install -U scikit-learn
 
 # Install git
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y git-core
 
 # Need to update ipython or ipython notebook will crash
-RUN DEBIAN_FRONTEND=noninteractive pip install ipython --upgrade
+RUN DEBIAN_FRONTEND=noninteractive pip3 install ipython --upgrade
 
 #Setting up working directory
 RUN mkdir /lab 
